@@ -1,0 +1,16 @@
+﻿Analyzing skin...                                               
+
+   info - The type parameter name 'Type' matches a visible type name - lib\core\usecase\usecase.dart:5:24 - avoid_types_as_parameter_names
+   info - The type parameter name 'Type' matches a visible type name - lib\core\usecase\usecase.dart:9:30 - avoid_types_as_parameter_names
+   info - The variable name 'AnimatedButton' isn't a lowerCamelCase identifier - lib\features\appointment\screens\appointment_screen.dart:348:10 - non_constant_identifier_names
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\appointment\screens\appointment_screen.dart:364:46 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\appointment\screens\schedule_screen.dart:70:42 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\appointment\widgets\date_select.dart:38:58 - deprecated_member_use
+  error - Extension methods can't be used in constant expressions - lib\features\appointment\widgets\date_select.dart:41:59 - const_eval_extension_method
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\auth\screens\login_screen.dart:212:51 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\auth\screens\login_signup_screen.dart:82:66 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\auth\screens\login_signup_screen.dart:227:37 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\auth\screens\login_signup_screen.dart:233:34 - deprecated_member_use
+   info - Invalid use of a private type in a public API - lib\features\chat\screens\message_screen.dart:12:3 - library_private_types_in_public_api
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\doctor\screens\find_doctor_screen.dart:200:62 - deprecated_member_use
+
