@@ -157,9 +157,15 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                   children: [
                     const Icon(Icons.smart_toy_outlined),
                     const SizedBox(width: 8),
-                    const Text(
-                      "Chat with Doctor",
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                    Flexible(
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: const Text(
+                          "Chat with Doctor",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                          maxLines: 1,
+                        ),
+                      ),
                     ),
                   ],
                 ),

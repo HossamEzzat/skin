@@ -32,16 +32,16 @@ class _SkinDiseaseInfoScreenState extends State<SkinDiseaseInfoScreen> {
   final Map<String, Map<String, String>> diseaseData = {
     'Acne': {
       'about':
-      'Acne is a common skin condition that occurs when hair follicles become clogged with oil and dead skin cells.',
+          'Acne is a common skin condition that occurs when hair follicles become clogged with oil and dead skin cells.',
       'symptoms': 'Pimples, blackheads, whiteheads, cysts.',
       'prevention':
-      'Keep skin clean, avoid oily cosmetics, maintain a healthy diet.',
+          'Keep skin clean, avoid oily cosmetics, maintain a healthy diet.',
       'treatment': 'Topical retinoids, antibiotics, benzoyl peroxide.',
       'dangerLevel': 'Low to Moderate.',
     },
     'Atopic Dermatitis': {
       'about':
-      'Atopic dermatitis is a chronic inflammatory skin condition causing itchy and inflamed skin.',
+          'Atopic dermatitis is a chronic inflammatory skin condition causing itchy and inflamed skin.',
       'symptoms': 'Itching, redness, dry and cracked skin.',
       'prevention': 'Moisturize regularly, avoid allergens and harsh soaps.',
       'treatment': 'Topical corticosteroids, antihistamines.',
@@ -49,7 +49,7 @@ class _SkinDiseaseInfoScreenState extends State<SkinDiseaseInfoScreen> {
     },
     'Chicken Skin': {
       'about':
-      'Chicken skin (keratosis pilaris) is a harmless condition where small bumps appear on the skin.',
+          'Chicken skin (keratosis pilaris) is a harmless condition where small bumps appear on the skin.',
       'symptoms': 'Rough, small bumps on arms, thighs, cheeks.',
       'prevention': 'Gentle exfoliation and moisturizing.',
       'treatment': 'Urea creams, lactic acid lotions.',
@@ -64,7 +64,7 @@ class _SkinDiseaseInfoScreenState extends State<SkinDiseaseInfoScreen> {
     },
     'Eruptive Xanthoma': {
       'about':
-      'Eruptive xanthomas are yellowish skin lesions associated with high triglyceride levels.',
+          'Eruptive xanthomas are yellowish skin lesions associated with high triglyceride levels.',
       'symptoms': 'Small yellow-red bumps, usually on arms and legs.',
       'prevention': 'Control cholesterol and blood sugar levels.',
       'treatment': 'Lipid-lowering medications, lifestyle changes.',
@@ -72,7 +72,7 @@ class _SkinDiseaseInfoScreenState extends State<SkinDiseaseInfoScreen> {
     },
     'Hansen`s Disease/Leprosy': {
       'about':
-      'Leprosy is a chronic infectious disease caused by Mycobacterium leprae.',
+          'Leprosy is a chronic infectious disease caused by Mycobacterium leprae.',
       'symptoms': 'Skin lesions, numbness, nerve damage.',
       'prevention': 'Early diagnosis and treatment.',
       'treatment': 'Multi-drug antibiotic therapy.',
@@ -93,7 +93,8 @@ class _SkinDiseaseInfoScreenState extends State<SkinDiseaseInfoScreen> {
       'dangerLevel': 'None.',
     },
     'Leukocytoclastic Vasculitis': {
-      'about': 'A condition involving inflammation of small blood vessels in the skin.',
+      'about':
+          'A condition involving inflammation of small blood vessels in the skin.',
       'symptoms': 'Purpura, red spots, ulcers.',
       'prevention': 'Treat underlying cause.',
       'treatment': 'Steroids, immunosuppressants.',
@@ -101,14 +102,15 @@ class _SkinDiseaseInfoScreenState extends State<SkinDiseaseInfoScreen> {
     },
     'Psoriasis': {
       'about':
-      'Psoriasis is an autoimmune condition that causes rapid skin cell buildup.',
+          'Psoriasis is an autoimmune condition that causes rapid skin cell buildup.',
       'symptoms': 'Red patches with silvery scales.',
       'prevention': 'Avoid triggers, manage stress.',
       'treatment': 'Topical treatments, biologics.',
       'dangerLevel': 'Moderate to High.',
     },
     'Purpura': {
-      'about': 'Purpura appears as purple spots due to bleeding under the skin.',
+      'about':
+          'Purpura appears as purple spots due to bleeding under the skin.',
       'symptoms': 'Purple or red skin patches.',
       'prevention': 'Manage underlying conditions.',
       'treatment': 'Depends on cause.',
@@ -123,7 +125,7 @@ class _SkinDiseaseInfoScreenState extends State<SkinDiseaseInfoScreen> {
     },
     'Spider Angioma': {
       'about':
-      'Spider angiomas are clusters of dilated blood vessels near the skin surface.',
+          'Spider angiomas are clusters of dilated blood vessels near the skin surface.',
       'symptoms': 'Red spot with radiating vessels.',
       'prevention': 'Avoid liver disease risk factors.',
       'treatment': 'Laser therapy if needed.',
@@ -145,7 +147,7 @@ class _SkinDiseaseInfoScreenState extends State<SkinDiseaseInfoScreen> {
     },
     'Xanthelasma': {
       'about':
-      'Xanthelasma are yellowish deposits of cholesterol around the eyes.',
+          'Xanthelasma are yellowish deposits of cholesterol around the eyes.',
       'symptoms': 'Soft yellow plaques near eyelids.',
       'prevention': 'Control cholesterol levels.',
       'treatment': 'Laser removal or surgery.',
@@ -185,7 +187,8 @@ class _SkinDiseaseInfoScreenState extends State<SkinDiseaseInfoScreen> {
 
     // Build normalized map: normalizedKey -> originalKey
     final Map<String, String> normalizedToOriginalKey = {
-      for (final originalKey in diseaseData.keys) _normalizeKey(originalKey): originalKey,
+      for (final originalKey in diseaseData.keys)
+        _normalizeKey(originalKey): originalKey,
     };
 
     final originalKey = normalizedToOriginalKey[normalizedPrediction];
@@ -222,14 +225,14 @@ class _SkinDiseaseInfoScreenState extends State<SkinDiseaseInfoScreen> {
         child: isLoading
             ? const Center(child: CircularProgressIndicator())
             : SingleChildScrollView(
-          child: Column(
-            children: [
-              _buildAppBar(context),
-              _buildImage(),
-              _buildContent(theme),
-            ],
-          ),
-        ),
+                child: Column(
+                  children: [
+                    _buildAppBar(context),
+                    _buildImage(),
+                    _buildContent(theme),
+                  ],
+                ),
+              ),
       ),
     );
   }
@@ -314,7 +317,7 @@ class _SkinDiseaseInfoScreenState extends State<SkinDiseaseInfoScreen> {
               child: ElevatedButton.icon(
                 onPressed: () {
                   final doctor = doctorsList.firstWhere(
-                        (d) => d.specialty.contains("Dermatologist"),
+                    (d) => d.specialty.contains("Dermatologist"),
                     orElse: () => doctorsList.first,
                   );
                   Navigator.push(
@@ -325,7 +328,12 @@ class _SkinDiseaseInfoScreenState extends State<SkinDiseaseInfoScreen> {
                   );
                 },
                 icon: const Icon(Icons.smart_toy_outlined),
-                label: const Text('Consult AI Assistant Now'),
+                label: const Flexible(
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text('Consult AI Assistant Now', maxLines: 1),
+                  ),
+                ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: theme.colorScheme.primary,
                   foregroundColor: theme.colorScheme.onPrimary,

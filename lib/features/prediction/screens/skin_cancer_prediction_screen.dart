@@ -213,10 +213,14 @@ class _SkinDiseaseClassifierState extends State<SkinDiseaseClassifier> {
                 color: Colors.white,
                 strokeWidth: 2,
               )
-            : Text(
-                'Classify Disease',
-                style: theme.textTheme.titleMedium?.copyWith(
-                  color: theme.colorScheme.onPrimary,
+            : FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  'Classify Disease',
+                  style: theme.textTheme.titleMedium?.copyWith(
+                    color: theme.colorScheme.onPrimary,
+                  ),
+                  maxLines: 1,
                 ),
               ),
       ),
@@ -322,7 +326,12 @@ class _SkinDiseaseClassifierState extends State<SkinDiseaseClassifier> {
                   );
                 },
                 icon: const Icon(Icons.info_outline),
-                label: const Text('View Detailed Recommendations'),
+                label: const Flexible(
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text('View Detailed Recommendations', maxLines: 1),
+                  ),
+                ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: theme.colorScheme.primary,
                   foregroundColor: theme.colorScheme.onPrimary,

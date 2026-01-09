@@ -30,12 +30,18 @@ class OnboardingButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              "$text ",
-              style: theme.textTheme.bodyLarge?.copyWith(
-                fontWeight: FontWeight.bold,
-                color: theme.colorScheme.onPrimary,
-                letterSpacing: 1,
+            Flexible(
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  "$text ",
+                  style: theme.textTheme.bodyLarge?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: theme.colorScheme.onPrimary,
+                    letterSpacing: 1,
+                  ),
+                  maxLines: 1,
+                ),
               ),
             ),
             Icon(icon, color: theme.colorScheme.onPrimary, size: 18.sp),

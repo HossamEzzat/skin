@@ -277,7 +277,10 @@ class _ProfileOptions extends StatelessWidget {
             style: ElevatedButton.styleFrom(
               backgroundColor: theme.colorScheme.error,
             ),
-            child: const Text("Confirm"),
+            child: const FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text("Confirm", maxLines: 1),
+            ),
           ),
         ],
       ),

@@ -277,13 +277,17 @@ class _LoginScreenState extends State<LoginScreen>
                                     ? const CircularProgressIndicator(
                                         color: Colors.white,
                                       )
-                                    : Text(
-                                        "Login",
-                                        style: theme.textTheme.titleMedium
-                                            ?.copyWith(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold,
-                                            ),
+                                    : FittedBox(
+                                        fit: BoxFit.scaleDown,
+                                        child: Text(
+                                          "Login",
+                                          style: theme.textTheme.titleMedium
+                                              ?.copyWith(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                          maxLines: 1,
+                                        ),
                                       ),
                               ),
                             ),

@@ -284,11 +284,15 @@ class _RegisterScreenState extends State<RegisterScreen>
         ),
         child: isLoading
             ? const CircularProgressIndicator(color: Colors.white)
-            : Text(
-                "Create Account",
-                style: theme.textTheme.titleMedium?.copyWith(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
+            : FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  "Create Account",
+                  style: theme.textTheme.titleMedium?.copyWith(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  maxLines: 1,
                 ),
               ),
       ),

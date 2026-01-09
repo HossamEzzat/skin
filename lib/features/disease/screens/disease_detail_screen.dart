@@ -235,7 +235,10 @@ class DiseaseDetailScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(14),
                 ),
               ),
-              child: const Text("Share With Dr."),
+              child: const FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text("Share With Dr.", maxLines: 1),
+              ),
             ),
           ),
           SizedBox(width: 4.w),
@@ -257,7 +260,10 @@ class DiseaseDetailScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(14),
                 ),
               ),
-              child: const Text("Near By Clinic"),
+              child: const FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text("Near By Clinic", maxLines: 1),
+              ),
             ),
           ),
         ],

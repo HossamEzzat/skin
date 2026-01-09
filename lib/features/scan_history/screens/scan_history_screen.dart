@@ -200,7 +200,10 @@ class _ScanHistoryScreenState extends State<ScanHistoryScreen> {
           ElevatedButton.icon(
             onPressed: _loadScanHistory,
             icon: const Icon(Icons.refresh),
-            label: const Text('Retry'),
+            label: const FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text('Retry', maxLines: 1),
+            ),
           ),
         ],
       ),

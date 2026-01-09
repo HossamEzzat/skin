@@ -132,7 +132,10 @@ class _EmailInputTabState extends State<EmailInputTab> {
                               color: Colors.white,
                             ),
                           )
-                        : const Text('Send Reset Email'),
+                        : const FittedBox(
+                            fit: BoxFit.scaleDown,
+                            child: Text('Send Reset Email', maxLines: 1),
+                          ),
                   ),
                 ),
               ],
