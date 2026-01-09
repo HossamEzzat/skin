@@ -1,20 +1,30 @@
 import 'package:skin/features/prediction/domain/entities/prediction_entity.dart';
 
 class PredictionModel extends PredictionEntity {
-  const PredictionModel({required super.label, required super.confidence});
+  const PredictionModel({
+    required super.label,
+    required super.confidence,
+  });
 
   factory PredictionModel.fromJson(Map<String, dynamic> json) {
-    // Handling different potential JSON structures from the Flask API
-    final prediction = json['predictions'][0];
+    // Handle BOTH:
+    // Skin disease → { prediction, confidence }
+    // Burn        → { burn_level, confidence }
+
+    final label = (json['prediction'] ??
+        json['burn_level'] ??
+        'Unknown') as String;
+
     return PredictionModel(
-      label: prediction['class'] ?? 'Unknown',
-      confidence: (prediction['confidence'] as num).toDouble(),
+      label: label,
+      confidence: (json['confidence'] as num?)?.toDouble() ?? 0.0,
     );
   }
 
   Map<String, dynamic> toJson() {
-    return {'label': label, 'confidence': confidence};
+    return {
+      'label': label,
+      'confidence': confidence,
+    };
   }
 }
-
-

@@ -30,54 +30,149 @@ class _SkinDiseaseInfoScreenState extends State<SkinDiseaseInfoScreen> {
   String dangerLevel = "No information available.";
 
   final Map<String, Map<String, String>> diseaseData = {
-    'acne': {
+    'Acne': {
       'about':
-          'Acne is a common skin condition that occurs when hair follicles become clogged with oil and dead skin cells.',
+      'Acne is a common skin condition that occurs when hair follicles become clogged with oil and dead skin cells.',
       'symptoms': 'Pimples, blackheads, whiteheads, cysts.',
       'prevention':
-          'Keep skin clean, avoid greasy cosmetics, eat a healthy diet.',
-      'treatment': 'Topical creams, antibiotics, laser therapy.',
-      'dangerLevel': 'Low, but can cause scarring if untreated.',
+      'Keep skin clean, avoid oily cosmetics, maintain a healthy diet.',
+      'treatment': 'Topical retinoids, antibiotics, benzoyl peroxide.',
+      'dangerLevel': 'Low to Moderate.',
     },
-    'atopic': {
+    'Atopic Dermatitis': {
       'about':
-          'Atopic dermatitis (eczema) is a condition that makes your skin red and itchy.',
-      'symptoms': 'Itchy, dry, inflamed skin, rash.',
-      'prevention':
-          'Use gentle skin products, moisturize regularly, avoid triggers.',
-      'treatment': 'Steroid creams, antihistamines.',
-      'dangerLevel': 'Moderate, affects quality of life.',
-    },
-    'chickenpox': {
-      'about':
-          'Chickenpox is a contagious viral infection that causes an itchy rash.',
-      'symptoms': 'Blisters, fever, fatigue.',
-      'prevention': 'Vaccination, avoid infected people.',
-      'treatment': 'Antivirals, calamine lotion.',
-      'dangerLevel': 'Low, higher risk in adults.',
-    },
-    'eczema': {
-      'about': 'Eczema causes red, inflamed, and itchy skin.',
-      'symptoms': 'Dry skin, rash, itching.',
-      'prevention': 'Moisturize, avoid triggers.',
-      'treatment': 'Steroid creams, antihistamines.',
+      'Atopic dermatitis is a chronic inflammatory skin condition causing itchy and inflamed skin.',
+      'symptoms': 'Itching, redness, dry and cracked skin.',
+      'prevention': 'Moisturize regularly, avoid allergens and harsh soaps.',
+      'treatment': 'Topical corticosteroids, antihistamines.',
       'dangerLevel': 'Moderate.',
     },
-    'melanoma': {
-      'about': 'Melanoma is a serious form of skin cancer.',
-      'symptoms': 'Changing or irregular moles.',
-      'prevention': 'Sun protection, regular skin checks.',
-      'treatment': 'Surgery, immunotherapy.',
+    'Chicken Skin': {
+      'about':
+      'Chicken skin (keratosis pilaris) is a harmless condition where small bumps appear on the skin.',
+      'symptoms': 'Rough, small bumps on arms, thighs, cheeks.',
+      'prevention': 'Gentle exfoliation and moisturizing.',
+      'treatment': 'Urea creams, lactic acid lotions.',
+      'dangerLevel': 'Low.',
+    },
+    'Eczema': {
+      'about': 'Eczema causes inflamed, itchy, and irritated skin.',
+      'symptoms': 'Dry skin, redness, itching, scaling.',
+      'prevention': 'Avoid triggers, moisturize frequently.',
+      'treatment': 'Steroid creams, emollients.',
+      'dangerLevel': 'Moderate.',
+    },
+    'Eruptive Xanthoma': {
+      'about':
+      'Eruptive xanthomas are yellowish skin lesions associated with high triglyceride levels.',
+      'symptoms': 'Small yellow-red bumps, usually on arms and legs.',
+      'prevention': 'Control cholesterol and blood sugar levels.',
+      'treatment': 'Lipid-lowering medications, lifestyle changes.',
+      'dangerLevel': 'Moderate (systemic risk).',
+    },
+    'Hansen`s Disease/Leprosy': {
+      'about':
+      'Leprosy is a chronic infectious disease caused by Mycobacterium leprae.',
+      'symptoms': 'Skin lesions, numbness, nerve damage.',
+      'prevention': 'Early diagnosis and treatment.',
+      'treatment': 'Multi-drug antibiotic therapy.',
+      'dangerLevel': 'High if untreated.',
+    },
+    'Hansen`s Disease/Leprosy- severe': {
+      'about': 'Severe leprosy causes extensive nerve damage and deformities.',
+      'symptoms': 'Severe numbness, ulcers, deformities.',
+      'prevention': 'Early aggressive treatment.',
+      'treatment': 'Long-term multidrug therapy and rehabilitation.',
+      'dangerLevel': 'Very High.',
+    },
+    'Healthy Skin': {
+      'about': 'Healthy skin shows no signs of disease or infection.',
+      'symptoms': 'Normal color, smooth texture.',
+      'prevention': 'Good hygiene, sun protection.',
+      'treatment': 'No treatment required.',
+      'dangerLevel': 'None.',
+    },
+    'Leukocytoclastic Vasculitis': {
+      'about': 'A condition involving inflammation of small blood vessels in the skin.',
+      'symptoms': 'Purpura, red spots, ulcers.',
+      'prevention': 'Treat underlying cause.',
+      'treatment': 'Steroids, immunosuppressants.',
       'dangerLevel': 'High.',
     },
-    'vitiligo': {
+    'Psoriasis': {
+      'about':
+      'Psoriasis is an autoimmune condition that causes rapid skin cell buildup.',
+      'symptoms': 'Red patches with silvery scales.',
+      'prevention': 'Avoid triggers, manage stress.',
+      'treatment': 'Topical treatments, biologics.',
+      'dangerLevel': 'Moderate to High.',
+    },
+    'Purpura': {
+      'about': 'Purpura appears as purple spots due to bleeding under the skin.',
+      'symptoms': 'Purple or red skin patches.',
+      'prevention': 'Manage underlying conditions.',
+      'treatment': 'Depends on cause.',
+      'dangerLevel': 'Moderate.',
+    },
+    'Ringworm': {
+      'about': 'Ringworm is a fungal infection affecting the skin.',
+      'symptoms': 'Circular red rash, itching.',
+      'prevention': 'Keep skin dry, avoid sharing personal items.',
+      'treatment': 'Antifungal creams or oral medication.',
+      'dangerLevel': 'Low.',
+    },
+    'Spider Angioma': {
+      'about':
+      'Spider angiomas are clusters of dilated blood vessels near the skin surface.',
+      'symptoms': 'Red spot with radiating vessels.',
+      'prevention': 'Avoid liver disease risk factors.',
+      'treatment': 'Laser therapy if needed.',
+      'dangerLevel': 'Low.',
+    },
+    'Vitiligo': {
       'about': 'Vitiligo causes loss of skin pigment.',
-      'symptoms': 'White skin patches.',
+      'symptoms': 'White patches on the skin.',
       'prevention': 'No known prevention.',
       'treatment': 'Phototherapy, topical steroids.',
       'dangerLevel': 'Low.',
     },
+    'Warts': {
+      'about': 'Warts are caused by human papillomavirus (HPV).',
+      'symptoms': 'Small rough skin growths.',
+      'prevention': 'Avoid direct contact, maintain hygiene.',
+      'treatment': 'Cryotherapy, salicylic acid.',
+      'dangerLevel': 'Low.',
+    },
+    'Xanthelasma': {
+      'about':
+      'Xanthelasma are yellowish deposits of cholesterol around the eyes.',
+      'symptoms': 'Soft yellow plaques near eyelids.',
+      'prevention': 'Control cholesterol levels.',
+      'treatment': 'Laser removal or surgery.',
+      'dangerLevel': 'Low (but indicates lipid disorder).',
+    },
   };
+
+  // ---------- Case-insensitive + punctuation-tolerant lookup ----------
+
+  String _normalizeKey(String s) {
+    return s
+        .trim()
+        .toLowerCase()
+        .replaceAll('`', "'") // handle backtick vs apostrophe
+        .replaceAll(RegExp(r'[^a-z0-9]+'), ' ') // remove punctuation
+        .replaceAll(RegExp(r'\s+'), ' ') // collapse spaces
+        .trim();
+  }
+
+  String _toTitleCase(String s) {
+    final cleaned = s.trim();
+    if (cleaned.isEmpty) return cleaned;
+    return cleaned
+        .split(RegExp(r'\s+'))
+        .map((w) => w.isEmpty ? w : '${w[0].toUpperCase()}${w.substring(1)}')
+        .join(' ');
+  }
 
   @override
   void initState() {
@@ -86,17 +181,32 @@ class _SkinDiseaseInfoScreenState extends State<SkinDiseaseInfoScreen> {
   }
 
   void _loadDiseaseData() {
-    final key = widget.prediction.toLowerCase();
+    final normalizedPrediction = _normalizeKey(widget.prediction);
 
-    if (diseaseData.containsKey(key)) {
-      final data = diseaseData[key]!;
+    // Build normalized map: normalizedKey -> originalKey
+    final Map<String, String> normalizedToOriginalKey = {
+      for (final originalKey in diseaseData.keys) _normalizeKey(originalKey): originalKey,
+    };
 
-      diseaseName = key.toUpperCase();
-      aboutInfo = data['about']!;
-      symptoms = data['symptoms']!;
-      prevention = data['prevention']!;
-      treatment = data['treatment']!;
-      dangerLevel = data['dangerLevel']!;
+    final originalKey = normalizedToOriginalKey[normalizedPrediction];
+
+    if (originalKey != null) {
+      final data = diseaseData[originalKey]!;
+
+      diseaseName = originalKey; // keep nice display name
+      aboutInfo = data['about'] ?? "No information available.";
+      symptoms = data['symptoms'] ?? "No information available.";
+      prevention = data['prevention'] ?? "No information available.";
+      treatment = data['treatment'] ?? "No information available.";
+      dangerLevel = data['dangerLevel'] ?? "No information available.";
+    } else {
+      // fallback if no match
+      diseaseName = _toTitleCase(widget.prediction);
+      aboutInfo = "No information available for this condition.";
+      symptoms = "No information available.";
+      prevention = "No information available.";
+      treatment = "No information available.";
+      dangerLevel = "No information available.";
     }
 
     setState(() => isLoading = false);
@@ -112,14 +222,14 @@ class _SkinDiseaseInfoScreenState extends State<SkinDiseaseInfoScreen> {
         child: isLoading
             ? const Center(child: CircularProgressIndicator())
             : SingleChildScrollView(
-                child: Column(
-                  children: [
-                    _buildAppBar(context),
-                    _buildImage(),
-                    _buildContent(theme),
-                  ],
-                ),
-              ),
+          child: Column(
+            children: [
+              _buildAppBar(context),
+              _buildImage(),
+              _buildContent(theme),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -203,9 +313,8 @@ class _SkinDiseaseInfoScreenState extends State<SkinDiseaseInfoScreen> {
               height: 56,
               child: ElevatedButton.icon(
                 onPressed: () {
-                  // Find a dermatologist (e.g., Dr. Ahmed Mansour)
                   final doctor = doctorsList.firstWhere(
-                    (d) => d.specialty.contains("Dermatologist"),
+                        (d) => d.specialty.contains("Dermatologist"),
                     orElse: () => doctorsList.first,
                   );
                   Navigator.push(
