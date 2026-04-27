@@ -8,11 +8,27 @@ import 'package:skin/features/auth/presentation/bloc/auth_state.dart';
 import 'package:skin/features/auth/screens/login_screen.dart';
 import 'package:skin/features/profile/widgets/profile_list.dart';
 import 'package:skin/features/scan_history/presentation/bloc/scan_history_bloc.dart';
+import 'package:skin/features/scan_history/presentation/bloc/scan_history_event.dart';
 import 'package:skin/features/scan_history/presentation/bloc/scan_history_state.dart';
 import 'package:skin/features/scan_history/screens/scan_history_screen.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
+
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  @override
+  void initState() {
+    super.initState();
+    // Load scan history when profile opens to ensure total scans is accurate
+    final authState = context.read<AuthBloc>().state;
+    if (authState is AuthAuthenticated) {
+      context.read<ScanHistoryBloc>().add(LoadScanHistory(authState.user.id));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

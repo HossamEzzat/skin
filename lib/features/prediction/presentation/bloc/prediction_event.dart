@@ -26,4 +26,4 @@ class SkinCancerPredictionRequested extends PredictionEvent {
   List<Object> get props => [image];
 }
 
-
+class ResetPrediction extends PredictionEvent {}

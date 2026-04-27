@@ -25,12 +25,15 @@ class ScanHistoryRemoteDataSourceImpl implements ScanHistoryRemoteDataSource {
       final querySnapshot = await firestore
           .collection('scan_history')
           .where('userId', isEqualTo: userId)
-          .orderBy('timestamp', descending: true)
           .get();
 
-      return querySnapshot.docs
+      final scans = querySnapshot.docs
           .map((doc) => ScanHistoryModel.fromJson(doc.data()))
           .toList();
+
+      scans.sort((a, b) => b.timestamp.compareTo(a.timestamp));
+
+      return scans;
     } catch (e) {
       throw Exception('Failed to get user scans: $e');
     }

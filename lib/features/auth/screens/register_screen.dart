@@ -8,6 +8,7 @@ import 'package:skin/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:skin/features/auth/presentation/bloc/auth_event.dart';
 import 'package:skin/features/auth/presentation/bloc/auth_state.dart';
 import 'package:skin/features/auth/screens/login_screen.dart';
+import 'package:skin/features/auth/presentation/widgets/auth_wrapper.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -106,9 +107,10 @@ class _RegisterScreenState extends State<RegisterScreen>
       listener: (context, state) {
         if (state is AuthAuthenticated) {
           _showSnack("Account created successfully", isError: false);
-          Navigator.pushReplacement(
+          Navigator.pushAndRemoveUntil(
             context,
-            NoAnimationPageRoute(builder: (context) => const LoginScreen()),
+            NoAnimationPageRoute(builder: (context) => const AuthWrapper()),
+            (route) => false,
           );
         } else if (state is AuthError) {
           _showSnack(state.message);

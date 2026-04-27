@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class CustomCard extends StatelessWidget {
@@ -9,6 +10,7 @@ class CustomCard extends StatelessWidget {
   final double? height;
   final double? width;
   final BoxBorder? border;
+  final bool isGlass;
 
   const CustomCard({
     super.key,
@@ -20,23 +22,30 @@ class CustomCard extends StatelessWidget {
     this.height,
     this.width,
     this.border,
+    this.isGlass = false,
   });
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Container(
+    
+    Widget content = Container(
       width: width,
       height: height,
       margin: margin,
       padding: padding,
       decoration: BoxDecoration(
-        color: color ?? theme.cardColor,
+        color: isGlass 
+            ? (color ?? Colors.white).withValues(alpha: 0.2)
+            : (color ?? theme.cardColor),
         borderRadius: borderRadius ?? BorderRadius.circular(20),
-        border:
-            border ??
-            Border.all(color: theme.dividerColor.withValues(alpha: 0.1)),
-        boxShadow: [
+        border: border ??
+            Border.all(
+              color: isGlass 
+                  ? Colors.white.withValues(alpha: 0.3)
+                  : theme.dividerColor.withValues(alpha: 0.1),
+            ),
+        boxShadow: isGlass ? null : [
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
@@ -47,5 +56,17 @@ class CustomCard extends StatelessWidget {
       ),
       child: child,
     );
+
+    if (isGlass) {
+      return ClipRRect(
+        borderRadius: borderRadius ?? BorderRadius.circular(20),
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+          child: content,
+        ),
+      );
+    }
+    
+    return content;
   }
 }

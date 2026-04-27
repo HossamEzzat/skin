@@ -21,6 +21,13 @@ class _BurnPredictionScreenState extends State<BurnPredictionScreen> {
   final ImagePicker _picker = ImagePicker();
   File? _image;
 
+  @override
+  void initState() {
+    super.initState();
+    // Reset prediction bloc to avoid showing old results with null image state
+    context.read<PredictionBloc>().add(ResetPrediction());
+  }
+
   Future<void> _pickImage() async {
     final XFile? pickedFile = await _picker.pickImage(
       source: ImageSource.gallery,

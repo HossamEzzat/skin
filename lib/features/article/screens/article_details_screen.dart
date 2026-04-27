@@ -4,6 +4,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:skin/core/widgets/gradient_background.dart';
 import 'package:skin/features/article/domain/entities/article_entity.dart';
 import 'package:skin/core/widgets/app_image.dart';
+import 'package:skin/core/widgets/custom_card.dart';
 
 class ArticleDetails extends StatelessWidget {
   final ArticleEntity article;
@@ -178,13 +179,11 @@ class ArticleDetails extends StatelessWidget {
   Widget _buildIngredients(ThemeData theme) {
     return Column(
       children: article.ingredients.map((ingredient) {
-        return Container(
+        return CustomCard(
+          isGlass: true,
           margin: const EdgeInsets.only(bottom: 12),
           padding: const EdgeInsets.all(14),
-          decoration: BoxDecoration(
-            color: theme.cardColor,
-            borderRadius: BorderRadius.circular(14),
-          ),
+          borderRadius: BorderRadius.circular(14),
           child: Row(
             children: [
               Icon(

@@ -370,31 +370,61 @@ class _SkinDiseaseInfoScreenState extends State<SkinDiseaseInfoScreen> {
     return Container(
       width: 155,
       height: 155,
+      padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: Colors.white,
+        borderRadius: BorderRadius.circular(24),
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            Colors.teal.shade50.withValues(alpha: 0.8),
+            Colors.white.withValues(alpha: 0.9),
+          ],
+        ),
         boxShadow: [
-          BoxShadow(color: Colors.black.withOpacity(0.08), blurRadius: 6),
+          BoxShadow(
+            color: Colors.teal.withValues(alpha: 0.1),
+            blurRadius: 12,
+            offset: const Offset(0, 4),
+          ),
         ],
+        border: Border.all(
+          color: Colors.teal.withValues(alpha: 0.2),
+          width: 1,
+        ),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, size: 28, color: Colors.teal),
+          Container(
+            padding: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: Colors.teal.shade100.withValues(alpha: 0.5),
+              shape: BoxShape.circle,
+            ),
+            child: Icon(icon, size: 24, color: Colors.teal.shade700),
+          ),
           const SizedBox(height: 8),
           Text(
             title,
-            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 14,
+              color: Colors.black87,
+            ),
           ),
           const SizedBox(height: 4),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
+          Expanded(
             child: Text(
               content,
               textAlign: TextAlign.center,
-              maxLines: 4,
+              maxLines: 3,
               overflow: TextOverflow.ellipsis,
-              style: const TextStyle(fontSize: 11.5),
+              style: TextStyle(
+                fontSize: 11,
+                color: Colors.grey.shade700,
+                height: 1.2,
+              ),
             ),
           ),
         ],

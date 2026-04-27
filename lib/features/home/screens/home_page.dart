@@ -4,6 +4,11 @@ import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:skin/features/disease/screens/disease_explorer_screen.dart';
 import 'package:skin/features/home/screens/dashboard_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skin/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:skin/features/auth/presentation/bloc/auth_state.dart';
+import 'package:skin/features/scan_history/presentation/bloc/scan_history_bloc.dart';
+import 'package:skin/features/scan_history/presentation/bloc/scan_history_event.dart';
 import 'package:skin/features/profile/screens/profile_screen.dart';
 
 class HomePage extends StatefulWidget {
@@ -63,6 +68,14 @@ class _HomePageState extends State<HomePage> {
         onTap: (index) {
           HapticFeedback.lightImpact();
           setState(() => _currentIndex = index);
+          if (index == 2) {
+            final authState = context.read<AuthBloc>().state;
+            if (authState is AuthAuthenticated) {
+              context.read<ScanHistoryBloc>().add(
+                RefreshScanHistory(authState.user.id),
+              );
+            }
+          }
         },
       ),
     );

@@ -11,7 +11,7 @@ class PredictionRemoteDataSourceImpl implements PredictionRemoteDataSource {
 
   PredictionRemoteDataSourceImpl({required this.client});
 
-  static const _baseUrl = "http://192.168.1.119:8000";
+  static const _baseUrl = "http://192.168.1.8:8000";
 
   @override
   Future<PredictionModel> predictBurn(File image) async {

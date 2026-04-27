@@ -9,6 +9,7 @@ import 'package:skin/core/routes/no_animation_route.dart';
 import 'package:skin/core/widgets/app_image.dart';
 import 'package:skin/core/widgets/gradient_background.dart';
 import 'package:skin/core/widgets/list_icons.dart';
+import 'package:skin/core/widgets/custom_card.dart';
 import 'package:skin/features/article/domain/entities/article_entity.dart';
 import 'package:skin/features/article/presentation/bloc/article_bloc.dart';
 import 'package:skin/features/article/presentation/bloc/article_bloc_states.dart';
@@ -83,13 +84,47 @@ class _DashboardState extends State<Dashboard> {
       toolbarHeight: 100,
       centerTitle: false,
       titleSpacing: 20,
-      title: Text(
-        "Find your desired health solution",
-        maxLines: 2,
-        style: theme.textTheme.headlineSmall?.copyWith(
-          fontWeight: FontWeight.w600,
-          color: theme.colorScheme.onSurface.withOpacity(0.9),
-        ),
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  "Hello there, 👋",
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    color: theme.colorScheme.onSurfaceVariant,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  "Find your desired health solution",
+                  maxLines: 2,
+                  style: theme.textTheme.headlineSmall?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: theme.colorScheme.onSurface.withValues(alpha: 0.9),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(width: 16),
+          Container(
+            padding: const EdgeInsets.all(3),
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(color: theme.colorScheme.primary, width: 2),
+            ),
+            child: CircleAvatar(
+              radius: 22,
+              backgroundColor: theme.colorScheme.primary.withValues(alpha: 0.1),
+              child: Icon(Icons.person, color: theme.colorScheme.primary),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -246,12 +281,10 @@ class _DashboardState extends State<Dashboard> {
         context,
         NoAnimationPageRoute(builder: (_) => ArticleDetails(article: article)),
       ),
-      child: Container(
+      child: CustomCard(
+        isGlass: true,
         padding: const EdgeInsets.all(12),
-        decoration: BoxDecoration(
-          color: theme.cardColor,
-          borderRadius: BorderRadius.circular(14),
-        ),
+        borderRadius: BorderRadius.circular(14),
         child: Row(
           children: [
             AppImage(

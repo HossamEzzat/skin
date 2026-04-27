@@ -10,7 +10,7 @@ import 'package:skin/features/auth/presentation/bloc/auth_state.dart';
 import 'package:skin/features/auth/screens/forgot_password_screen.dart';
 import 'package:skin/features/auth/screens/login_signup_screen.dart';
 import 'package:skin/features/auth/screens/register_screen.dart';
-import 'package:skin/features/home/screens/home_page.dart';
+import 'package:skin/features/auth/presentation/widgets/auth_wrapper.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -108,9 +108,10 @@ class _LoginScreenState extends State<LoginScreen>
       listener: (context, state) {
         if (state is AuthAuthenticated) {
           _showSnackBar("Login successful");
-          Navigator.pushReplacement(
+          Navigator.pushAndRemoveUntil(
             context,
-            NoAnimationPageRoute(builder: (context) => const HomePage()),
+            NoAnimationPageRoute(builder: (context) => const AuthWrapper()),
+            (route) => false,
           );
         } else if (state is AuthError) {
           _showSnackBar(state.message, error: true);

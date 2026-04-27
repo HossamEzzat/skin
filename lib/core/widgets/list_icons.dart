@@ -27,6 +27,7 @@ class ListIcons extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
             onTap: onTap,
             child: CustomCard(
+              isGlass: true,
               height: 8.h,
               width: 18.w,
               borderRadius: BorderRadius.circular(16),

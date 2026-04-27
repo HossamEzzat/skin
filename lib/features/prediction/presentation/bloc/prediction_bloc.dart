@@ -21,6 +21,7 @@ class PredictionBloc extends Bloc<PredictionEvent, PredictionState> {
   }) : super(PredictionInitial()) {
     on<BurnPredictionRequested>(_onBurnPredictionRequested);
     on<SkinCancerPredictionRequested>(_onSkinCancerPredictionRequested);
+    on<ResetPrediction>((event, emit) => emit(PredictionInitial()));
   }
 
   Future<void> _onBurnPredictionRequested(

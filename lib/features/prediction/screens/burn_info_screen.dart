@@ -327,36 +327,62 @@ class _BurninfoscreenState extends State<Burninfoscreen> {
     return Container(
       width: 155,
       height: 155,
+      padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: Colors.white,
+        borderRadius: BorderRadius.circular(24),
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            Colors.teal.shade50.withValues(alpha: 0.8),
+            Colors.white.withValues(alpha: 0.9),
+          ],
+        ),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withValues(alpha: 0.2),
-            blurRadius: 5,
-            spreadRadius: 2,
+            color: Colors.teal.withValues(alpha: 0.1),
+            blurRadius: 12,
+            offset: const Offset(0, 4),
           ),
         ],
+        border: Border.all(
+          color: Colors.teal.withValues(alpha: 0.2),
+          width: 1,
+        ),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(imagePath, width: 30, height: 30),
+          Container(
+            padding: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: Colors.teal.shade100.withValues(alpha: 0.5),
+              shape: BoxShape.circle,
+            ),
+            child: Image.asset(imagePath, width: 24, height: 24),
+          ),
           const SizedBox(height: 8),
           Text(
             title,
             textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            style: const TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+              color: Colors.black87,
+            ),
           ),
           const SizedBox(height: 4),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 6),
+          Expanded(
             child: Text(
               content,
               textAlign: TextAlign.center,
-              maxLines: 5,
+              maxLines: 4,
               overflow: TextOverflow.ellipsis,
-              style: const TextStyle(fontSize: 11.5),
+              style: TextStyle(
+                fontSize: 11,
+                color: Colors.grey.shade700,
+                height: 1.2,
+              ),
             ),
           ),
         ],
